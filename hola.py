@@ -23,12 +23,24 @@ def calculate_distance(city1, city2):
     else:
         return None
 
+# Función para calcular la distancia total entre tres ciudades
+def calculate_total_distance(city1, city2, city3):
+    distance1 = calculate_distance(city1, city2)
+    distance2 = calculate_distance(city2, city3)
+    
+    if distance1 is not None and distance2 is not None:
+        total_distance = distance1 + distance2
+        return total_distance
+    else:
+        return None
+
 # Ejemplo de uso
 city1 = "New York"
-city2 = "Los Angeles"
-distance = calculate_distance(city1, city2)
+city2 = "Chicago"
+city3 = "Los Angeles"
+total_distance = calculate_total_distance(city1, city2, city3)
 
-if distance:
-    print(f"La distancia entre {city1} y {city2} es de {distance:.2f} kilómetros.")
+if total_distance:
+    print(f"La distancia total entre {city1}, {city2} y {city3} es de {total_distance:.2f} kilómetros.")
 else:
-    print("Una o ambas ciudades no se encontraron en el archivo CSV.")
+    print("Una o más ciudades no se encontraron en el archivo CSV.")
